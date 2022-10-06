@@ -528,6 +528,11 @@ define([
             var privateDat = cpNfInner.metadataMgr.getPrivateData();
             var type = privateDat.app;
 
+            if (typeof(Feedback.state) === 'undefined') {
+                console.error("INITIALIZING FEEDBACK");
+                Feedback.init(privateDat.feedbackAllowed);
+            }
+
             // contentUpdate may be async so we need an nthen here
             nThen(function (waitFor) {
                 if (!newPad) {

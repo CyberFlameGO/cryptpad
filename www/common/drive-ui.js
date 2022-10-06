@@ -5297,6 +5297,12 @@ define([
                     refresh();
                 });
             }
+
+            var metadataMgr = common.getMetadataMgr();
+            var priv = metadataMgr.getPrivateData();
+            if (typeof(Feedback.state) === 'undefined') {
+                Feedback.init(priv.feedbackAllowed);
+            }
         });
 
         return {
